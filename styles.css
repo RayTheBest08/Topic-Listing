@@ -341,7 +341,7 @@ body {
 
 /* service-tools */
 
-.service-tools>.tools-nav{
+.service-tools>.tools-nav ul{
  list-style: none;
  display: flex;
  justify-content: center;
@@ -349,13 +349,23 @@ body {
  gap:65px;
  cursor: pointer;
  padding: 8px 8px;
- animation: ray 0.5s ease-out;
- -webkit-animation: ray 0.5s ease-out;
+ animation: ray 0.1s ease-out;
+ -webkit-animation: ray 0.1s ease-out;
 }
-.tools-nav:hover{
-    border-bottom: 2px solid var(--color-black);
+
+.tools-nav ::before {
    
-    text-decoration-line: underline;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    margin-right: 10px;
+   
+}
+
+
+.tools-nav a:hover{
+    margin-left: 40px;
+    border-bottom: #163bdd 1px solid;
     
 }
 
@@ -409,7 +419,10 @@ body {
 
 
 /* footer-container */
-footer {
+footer{
+    background-color: var(--color-white);
+}
+.menu-tools {
     background-color: var(--color-white);
     padding: 50px 40px;
     display: flex;
@@ -417,8 +430,11 @@ footer {
     align-items: center;
     flex-wrap: wrap;
     margin-top: 1rem;
+    padding-bottom: 120px;
     
+
 }
+
 
 footer li , footer a{
     list-style: none;
@@ -445,6 +461,7 @@ footer li , footer a{
     align-items: center; */
     width: 100%;
     padding: 50px 50px;
+    
 }
 
 .footer-language {
@@ -520,7 +537,44 @@ footer li , footer a{
 }
 
 .copyrigth{
-    margin-left: 8rem;
+    display: flex;
+    flex-direction: column;
+    padding-left: 23rem;
+    margin-top: 8rem;
+}
+
+.copyrigth>span{
+    color: var(--color-primary-accent);
+    font-size: 1rem;
+}
+
+.footer-language :last-child{
+    margin-left:35px;
+   
+
+}
+
+.triangle {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  background:var(--color-primary-light-blue);
+  clip-path: polygon(100% 0%, 100% 100%, 0% 100%);
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-end;
+  align-items: flex-end;
+  margin-left: 1300px;
+
+}
+
+.rectangle{
+    background: var(--color-primary-light-blue);
+    width: 100%;
+  height: 10px;
+  position: absolute;
+  margin-top: -10px;
+    
 }
 
 
