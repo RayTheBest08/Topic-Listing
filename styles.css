@@ -10,6 +10,8 @@
     --color-medium-grey: #666666;
     --color-light-grey: #EEEEEE;
     --color-lighter-grey: #F8F8F8;
+    --color-span: #fc0d0d;
+    --color-span2: #ff8800;
 
     --color-search-bar-border: #BBBBBB;
     --color-card-border: #E0E0E0;
@@ -29,18 +31,18 @@ body {
 
 /* section header */
 
-.navbar {
+ .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: var(--color-primary-light-blue); 
-    padding: 15px 40px; 
+    padding: 25px 40px; 
     color: var(--color-white);
     position: fixed;
-    width: calc(100% - 80px); /* Ajustement pour le padding */
+    border-bottom: 0.9px solid var(--color-white) ;
+    width: calc(100% - 80px); 
     z-index: 1001; 
 }
-
 
 
 .navbar-left .logo {
@@ -91,13 +93,53 @@ body {
   float: left;
   overflow: hidden;
   color: var(--color-primary-dark-blue);
+} 
+
+
+/* Cacher le menu et bouton par défaut */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
 }
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: var(--color-white);
+  border-radius: 2px;
+}
+
+
+
+
+
+/* Dropdown specific styles */
+/* .dropdown {
+    position: relative;
+    display: inline-block;
+} */
+
+/* .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 4px;
+} */
+
+
+
+
 
 /* Dropdown button */
 .dropdown .dropbtn {
   font-size: 16px;
   border: none;
-  color: var(--color-primary-dark-blue);
+  color: var(--color-black);
   padding: 14px 16px;
  
 }
@@ -108,8 +150,8 @@ body {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
-  color: var(--color-primary-dark-blue);
+  background-color: var(--color-search-bar-border);
+  color: var(--color-black);
   padding: 20px;
   border-radius: 20px;
   text-align: center;
@@ -122,7 +164,7 @@ body {
 /* Links inside the dropdown */
 .dropdown-content a {
   float: none;
-  color:var(--color-primary-accent);
+  color:var(--color-black);
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -227,7 +269,7 @@ body {
 /* service */
 
 .service{
-     background-color: var(--color-primary-light-blue);
+    background-color: var(--color-primary-light-blue);
     padding-bottom:20rem;
     border-bottom-left-radius: 80px;
     border-bottom-right-radius: 80px;
@@ -269,7 +311,7 @@ body {
     
 }
 
- h3 span{
+ .design-title h3 span{
     padding: 2px 3px 2px 3px;
     text-align:center;
     border-radius: 3px;
@@ -282,6 +324,11 @@ body {
     margin-right: 1rem;
   margin-left: 250px; 
 }
+.service-Design:hover{
+    transform: translateY(-6px);
+    transition: all 0.3s ease;
+  
+}
 
 
 /* section finace */
@@ -293,6 +340,8 @@ body {
     padding: 10px 10px;
     padding-left: 15px;
     background: url(/IMAGES/businesswoman-using-tablet-analysis.jpg);
+     background-size: cover;
+    background-position: center;
 }
 
 .finance-title h3 span{
@@ -336,7 +385,14 @@ body {
 .icons>span{
      margin-left: 230px;
     background-color: none;
+    
 
+}
+
+.service-finance:hover{
+    transform: translateY(-6px);
+    transition: all 0.3s ease;
+  
 }
 
 /* service-tools */
@@ -350,24 +406,41 @@ body {
  cursor: pointer;
  padding: 8px 8px;
  animation: ray 0.1s ease-out;
- -webkit-animation: ray 0.1s ease-out;
-}
-
-.tools-nav ::before {
-   
-    font-size: 20px;
-    font-weight: bold;
-    color: #000;
-    margin-right: 10px;
-   
 }
 
 
-.tools-nav a:hover{
-    margin-left: 40px;
-    border-bottom: #163bdd 1px solid;
-    
+hr{
+    width: 100%;
+    height: 0.5px;
+    background-color: var(--color-search-bar-border ) ;
+    margin-top: -2.05rem;
+    margin-bottom: 3rem;
+    opacity: 0.5;
+    z-index: 1;
 }
+
+
+
+.Browse-link a {
+    text-decoration: none;
+    color: var(--color-medium-grey); 
+    padding: 1.5rem 1.5rem;;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.Browse-link a:hover {
+    color:var(--color-primary-dark-blue);
+    border-bottom: 1px solid var(--color-black);
+}
+
+
+.Browse-link a.active {
+    color: var(--color-primary-dark-blue);
+    padding: 1.5rem 1.5rem;
+    border-bottom: 1px solid var(--color-black);
+}
+
 
 .service-tools h1{
     text-align: center;
@@ -377,12 +450,12 @@ body {
 
 }
 
-/* tools */
+/* tools design */
 
 .tools-design{
     display: flex;
     justify-content: center;
-    gap: 25px;
+    gap: 25px;   
 }
 
 .tools-design-title{
@@ -391,8 +464,16 @@ body {
     border-radius: 10px;
     padding: 10px 10px;
     padding-left: 15px;
-    box-shadow: 0 2 2 rgba(63, 61, 61, 1);
+     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+     cursor: pointer;
+   
 
+}
+
+.tools-design-title:hover{
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
 }
 
 .tools-title h3  {
@@ -406,7 +487,7 @@ body {
 }
 
  .tools-title h3 span{
-    padding: 2px 3px 2px 3px;
+   padding: 8px 8px 8px 8px;
     text-align:center;
     border-radius: 3px;
     font-size: 0.8rem;
@@ -416,6 +497,312 @@ body {
     margin-left: 150px; 
 }
 
+/*  tools marketing */
+
+.tools-marketing-section{
+    display: flex;
+    justify-content: center;
+    gap: 25px;   
+}
+
+.tools-marketing-title{
+     box-sizing: border-box;
+    background-color: var(--color-white);
+    border-radius: 10px;
+    padding: 15px 15px 15px 15px;
+    padding-left: 25px;
+     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+     cursor: pointer;
+   
+
+}
+
+.tools-marketing-title:hover{
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+}
+
+.tools-marke-title h3  {
+    font-size: 2rem;
+    color: var(--color-black);
+   
+}
+
+.tools-marke-title p{
+    font-size: 1.5rem;
+}
+
+ .tools-marke-title h3 span{
+    padding: 8px 8px 8px 8px;
+    text-align:center;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    color: var(--color-white);
+    background-color: var(--color-span);
+    margin-right: 1rem;
+    margin-left: 150px; 
+}
+
+.marketing-imag img{
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+    padding-left: 2rem;
+    padding-top: 8px;
+    
+}
+
+.marketing-title h3 span {
+    margin-right: 1rem;
+  margin-left: 250px; 
+}
+
+
+/* tools  finance */
+.service-container2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    /* margin-top: -89px; */
+     position: absolute;
+     width: 100%;
+   
+   
+    
+}
+
+.service-Design2{
+    box-sizing: border-box;
+    background-color: var(--color-white);
+    border-radius: 10px;
+    padding: 10px 10px;
+    padding-left: 15px;
+   
+}
+
+
+.design2-imag img{
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+    padding-left: 2rem;
+    
+}
+
+ .design2-title h3 span{
+    padding: 2px 3px 2px 3px;
+    background-color: var(--color-search-bar-border);
+    text-align:center;
+    border-radius: 3px;
+    color: var(--color-white);
+    background-color: var(--color-button-background);
+}
+
+.design2-title h3 span {
+  padding: 8px 8px 8px 8px;
+  border-radius: 3px;
+  margin-right: 1rem;
+  margin-left: 250px; 
+}
+.service-Design2:hover{
+    transform: translateY(-6px);
+    transition: all 0.3s ease;
+  
+}
+.service-finance2{
+    box-sizing: border-box;
+    box-sizing: border-box;
+     border-radius: 10px;
+    padding: 10px 10px;
+    padding-left: 15px;
+    background-color: var(--color-primary-accent);
+
+}
+
+.finance2-title h3 span{
+    padding: 8px 8px 8px 8px;
+    background-color: var(--color-search-bar-border);
+    border-radius: 3px;
+    margin-right: 1rem;
+    margin-left: 310px;
+    
+}
+
+.finance2-title{
+    color: var(--color-white);
+    
+
+}
+
+.finance2-button button{
+    background-color: var(--color-primary-light-blue);
+    color: var(--color-button-text-white);
+    border: none;
+    border-radius: 50px; 
+    padding: 12px 10px;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight:normal;
+    margin-top: 1.7rem;
+
+    
+}
+
+.social-medial{
+    margin-top: 3.5rem;
+    display: flex;
+    color: var(--color-white);
+}
+.social-medial>.icons{
+     padding: 1.29rem;
+     display: flex;
+     gap: 10px;
+
+}
+
+.icons>span{
+     margin-left: 230px;
+    background-color: none;
+    
+
+}
+
+.service-finance2:hover{
+    transform: translateY(-6px);
+    transition: all 0.3s ease;
+  
+}
+
+
+
+/* tools music */
+
+.tools-music-section{
+    display: flex;
+    justify-content: center;
+    gap: 25px;   
+}
+
+.tools-musics-title{
+    box-sizing: border-box;
+    background-color: var(--color-white);
+    border-radius: 10px;
+    padding: 15px 15px 15px 15px;
+    padding-left: 25px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+   
+
+}
+
+.tools-musics-title:hover{
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+}
+
+.tools-musics-title h3  {
+    font-size: 1.8rem;
+    color: var(--color-black);
+   
+}
+
+.tools-musics-title p{
+    font-size: 1.5rem;
+}
+
+ .tools-musics-title h3>span{
+    padding: 8px 8px 8px 8px;
+    text-align:center;
+    font-size: 0.8rem;
+    border-radius: 3px;
+    color: var(--color-white);
+    background-color: var(--color-span2);
+   
+}
+
+.music-imag img{
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+    padding-left: 2rem;
+    padding-top: 8px;
+    
+}
+
+.tools-musi-title h3 span {
+    margin-right: 1rem;
+  margin-left: 180px; 
+}
+
+/* tools education */
+
+.tools-education{
+    display: flex;
+    justify-content: center;
+    gap: 25px;   
+}
+
+.tools-education-title{
+    box-sizing: border-box;
+    background-color: var(--color-white);
+    border-radius: 10px;
+    padding: 15px 15px 15px 15px;
+    padding-left: 25px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+   
+
+}
+
+.tools-education-title:hover{
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+}
+
+.tools-edu-title h3  {
+    font-size: 1.8rem;
+    color: var(--color-black);
+   
+}
+
+.tools-edu-title p{
+    font-size: 1.5rem;
+}
+
+ .tools-edu-title h3>span{
+    padding: 2px 2px 2px 2px;
+    text-align:center;
+    border-radius: 3px;
+    color: var(--color-white);
+    background-color: var(--color-span2);
+   
+}
+
+.education-imag img{
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+    padding-left: 2rem;
+    padding-top: 8px;
+    
+}
+
+.tools-edu-title h3 span {
+    margin-right: 1rem;
+  margin-left: 350px; 
+}
 
 
 /* footer-container */
@@ -577,7 +964,106 @@ footer li , footer a{
     
 }
 
+/* Responsive pour Tablettes et petits écrans */
+@media (max-width: 768px) {
+    header {
+        width: 100%;
+    }
+    nav{
+        width: 100%;
+        padding: 10px 20px;}
 
+    .navbar {
+        display: flex;
+        flex-direction: row;
+        /* gap: 20px; */
+        /* width: calc(100% - 20px); */
+        padding: 10px 20px; 
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000; 
+        width: 100%;
+    }
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar-center .nav-links {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    background-color: var(--color-primary-light-blue);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 20px 20px 0px;
+    gap: 15px;
+    z-index: 1000;
+  }
+
+  .navbar-center .nav-links.active {
+    display: flex;
+  }
+
+   .service-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .service{
+        padding-bottom: 48rem;
+   
+    }
+
+    .service-Design, .service-finance {
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    .service-Design {
+        width: 100%;
+        max-width: 400px;
+    }
+    .service-finance {
+        width: 100%;
+        max-width: 400px;
+        background-size: cover;
+        background-position: center;
+    }
+    .social-medial>.icons {
+        margin-left: 0;
+         margin-top: 12px;
+        padding: 10px;
+        gap: 10px;
+    }
+    .icons{
+        padding: 10px;
+        display: flex;
+    }
+   
+
+    .design-imag img, .marketing-imag img {
+        max-width: 300px; 
+        width: 100%;
+    }
+    .tools-nav ul {
+        flex-direction: wrap;
+        align-items: center;
+        gap: 20px;
+        margin-top: 3rem;
+    }
+
+    .tools-design, .tools-marketing {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tools-design-title, .tools-marketing-title {
+        padding: 20px;
+    }
+}
 
 
 
